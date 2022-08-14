@@ -22,5 +22,14 @@ implementation 'org.springframework.boot:spring-boot-starter-batch'
     <img src="./src/main/resources/img/batch_init_step.png" width="200" height="400"/>
 - 스프링 부트 배치의 자동 설정 클래스가 실행됨으로 빈으로 등록된 모든 Job을 검색해서 초기화와 동시에 Job을 수행하도록 구성됨
 
+### 시작하기
+- ```@Configuration``` 선언 : 하나의 배치 Job 을 정의하고 빈 설정
+- JobBuilderFactory : Job 을 생성하는 빌더 팩토리
+- StepBuilderFactory : Step 을 생성하는 빌더 팩토리
+- Job : 전체 일, 일감
+- Step : Job 안에서의 단계
+- Tasklet : Step 안에서 단일 태스크로 수행되는 로직 구현
+- Job 구동 > Step 실행 > Tasklet 실행
+
 ### 참고
 - [인프런 강의](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B0%B0%EC%B9%98/dashboard)
