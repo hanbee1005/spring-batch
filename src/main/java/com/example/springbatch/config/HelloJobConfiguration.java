@@ -1,5 +1,6 @@
 package com.example.springbatch.config;
 
+import com.example.springbatch.CustomTasklet;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;
@@ -49,10 +50,7 @@ public class HelloJobConfiguration {
     @Bean
     public Step byeStep() {
         return stepBuilderFactory.get("byeStep")
-                .tasklet((contribution, chunkContext) -> {
-                    log.info("===== Bye Spring Batch =====");
-                    return RepeatStatus.FINISHED;
-                })
+                .tasklet(new CustomTasklet())
                 .build();
     }
 }
