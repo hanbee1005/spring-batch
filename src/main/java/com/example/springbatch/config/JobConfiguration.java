@@ -1,6 +1,6 @@
 package com.example.springbatch.config;
 
-import com.example.springbatch.validator.CustomJobParametersValidator;
+import com.example.springbatch.custom.CustomJobParametersIncrementer;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;
@@ -27,6 +27,7 @@ public class JobConfiguration {
                 .next(step3())
 //                .validator(new CustomJobParametersValidator())
                 .validator(new DefaultJobParametersValidator(new String[]{"name", "date"}, new String[]{"count"}))
+                .incrementer(new CustomJobParametersIncrementer())
                 .build();
     }
 
