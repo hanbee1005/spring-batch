@@ -30,6 +30,7 @@ public class HelloJobConfiguration {
     public Step step1() {
         return stepBuilderFactory.get("step1")
                 .tasklet((contribution, chunkContext) -> {
+                    Thread.sleep(3000);
                     return RepeatStatus.FINISHED;
                 })
                 .build();
